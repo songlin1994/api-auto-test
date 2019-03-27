@@ -20,12 +20,12 @@ if __name__ == '__main__':
 
     shell = Shell.Shell()
     xml_report_path = './Report/xml/'
-    html_report_path = './Report/report/'
+    html_report_path = './Report/html/'
 
 
     pytest.main(['-s', '-q', '--alluredir',xml_report_path,'./TestCase'])
-    #cmd = 'allure generate %s -o %s' % (xml_report_path, html_report_path)
-    cmd = "allure generate %s -o ./Report/report/ --clean"%(xml_report_path)
+
+    cmd = "allure generate %s -o %s --clean"%(xml_report_path,html_report_path)
 
     try:
         shell.invoke(cmd)

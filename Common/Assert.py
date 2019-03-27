@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2018/8/21 下午10:14
-# @Author  : WangJuan
-# @File    : Assert.py
-
 
 """
 封装Assert方法
@@ -28,7 +23,7 @@ class Assertions:
             assert code == expected_code
             return True
         except:
-            self.log.error("statusCode error, expected_code is %s, statusCode is %s " % (expected_code, code))
+            self.log.error("响应状态码错误, 预期状态码 is %s, 实际状态码 is %s " % (expected_code, code))
 
             raise
 
@@ -46,6 +41,7 @@ class Assertions:
             return True
 
         except:
+            self.log.error("Response body msg != expected_msg, expected_msg is %s, body_msg is %s" % (expected_msg, body_msg))
             self.log.error("Response body msg != expected_msg, expected_msg is %s, body_msg is %s" % (expected_msg, body_msg))
 
             raise
