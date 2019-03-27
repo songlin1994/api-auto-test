@@ -20,8 +20,6 @@ class Request:
         self.headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"}
 
 
-
-
     def get(self,url,params,headers,cookies=None):
         if(headers):
             headers = dict(self.headers,**headers)
@@ -47,7 +45,7 @@ class Request:
             print(url)
         try:
 
-            response = requests.get(url, params, headers, cookies)
+            response = requests.get(url=url, params=params, headers=headers, cookies=cookies)
 
         except requests.RequestException as e:
             print('%s%s' % ('RequestException url: ', url))
