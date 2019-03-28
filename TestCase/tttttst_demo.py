@@ -1,9 +1,6 @@
-import pytest
 import allure
 from Common import Assert
 from Common import Request
-import requests
-import json
 
 # 新建一个 Assert.Assertions() 的对象 对象名: assertions
 assertions = Assert.Assertions()

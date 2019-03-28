@@ -6,7 +6,6 @@
 # '--allure_stories=测试模块_demo1, 测试模块_demo2'
 # '--allure_features=测试features'
 """
-import sys
 
 import pytest
 
