@@ -2,21 +2,29 @@ import allure
 import pytest
 from Common import Assert
 from Common import Request
+from Common import read_excel
 
 # 新建一个 Assert.Assertions() 的对象 对象名: assertions
 assertions = Assert.Assertions()
 request = Request.Request()
+excel_list = read_excel.read_excel_list('./document/test.xlsx')
+idsList = []
+len1 = len(excel_list)
+for i in range(len1):
+    idsList.append(excel_list[i].pop())
 
+
+# 数据驱动测试
 
 @allure.feature("演示模块")
 class Testdemo(object):
 
     @allure.story("演示功能")
-    @pytest.mark.parametrize("pwd,name,msg",
-            [('123456','admin','成功'),('1234561','admin','错误'),('123456','admin1','错误')],
-            ids=['登录成功','密码错误','用户名错误'])
-    def test_case_demo(self,pwd,name,msg):
-        login_data = {"password": pwd, "username": name}
+    @pytest.mark.parametrize("name,pwd,msg",
+            excel_list,
+            ids=idsList)
+    def test_case_demo(self,name,pwd,msg):
+        login_data = {"username":name , "password": pwd}
         login_resp = request.post_request(url="http://qa.guoyasoft.com:8099/admin/login", json=login_data)
         # .assert_code 用来断言 状态码 ; 第一个参数 填 响应的状态码, 第二个参数 期望值
         assertions.assert_code(login_resp.status_code, 200)
