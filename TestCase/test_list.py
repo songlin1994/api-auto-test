@@ -7,10 +7,15 @@ from Common import read_excel
 # 新建一个 Assert.Assertions() 的对象 对象名: assertions
 assertions = Assert.Assertions()
 request = Request.Request()
+# 读取 ./document/test.xlsx 这个excel  获得 一个list : excel_list
 excel_list = read_excel.read_excel_list('./document/test.xlsx')
+# 声明一个空list : idsList
 idsList = []
+# 获取 excel_list 的长度
 len1 = len(excel_list)
+# 遍历 excel_list
 for i in range(len1):
+    #  将excel_list 每个元素的最后一位 删掉 , 并取出来 添加到 idsList 里面
     idsList.append(excel_list[i].pop())
 
 
