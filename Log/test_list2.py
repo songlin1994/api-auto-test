@@ -10,19 +10,21 @@ assertions = Assert.Assertions()
 request = Request.Request()
 
 excel_list = read_excel.read_excel_list("./document/test.xlsx")
-
+print(excel_list)
 idsList = []
+
 len1 = len(excel_list)
 for i in range(len1):
     a = excel_list[i].pop()
     idsList.append(a)
+print(excel_list)
+print(idsList)
+
 
 @allure.feature("演示模块")
 class Testdemo(object):
     @allure.story("演示功能")
-    @pytest.mark.parametrize('name,pwd,msg',
-                             excel_list,
-                             ids= idsList)
+    @pytest.mark.parametrize('name,pwd,msg',excel_list,ids= idsList)
     def test_case_demo(self,name,pwd,msg):
         login_data = {"username": name, "password": pwd}
         login_resp = request.post_request(url="http://qa.guoyasoft.com:8099/admin/login", json=login_data)

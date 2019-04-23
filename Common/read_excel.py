@@ -44,7 +44,7 @@ def read_excel_list(file):
 
 if __name__ == '__main__':
     excel_list = read_excel_list("../document/test.xlsx")
-
+    print(excel_list)
     idsList = []
     len1 = len(excel_list)
     for i in range(len1):

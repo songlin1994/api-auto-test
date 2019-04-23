@@ -60,7 +60,7 @@ class Assertions:
             return True
 
         except:
-            self.log.error("Response body Does not contain expected_msg, expected_msg is %s" % expected_msg)
+            self.log.error("响应正文不包含期望值, 期望值 是  %s" % expected_msg)
 
             raise
 
