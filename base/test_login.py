@@ -5,7 +5,9 @@ import pytest
 
 request = Request.Request()
 assertion = Assert.Assertions()
+
 idsList=[]
+
 excel_list = read_excel.read_excel_list('./document/test.xlsx')
 length = len(excel_list)
 for i in range(length):
