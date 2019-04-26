@@ -118,3 +118,4 @@ def time_hm():
 if __name__ == '__main__':
     print(time_m())
     print(GBK2312()+GBK2312()+GBK2312())
+    
