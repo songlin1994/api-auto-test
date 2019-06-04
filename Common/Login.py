@@ -18,3 +18,4 @@ class Login():
         tokenHead = data_dict['tokenHead']
         head ={ 'Authorization' : tokenHead+token}
         return head
+

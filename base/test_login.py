@@ -19,6 +19,8 @@ for i in range(length):
 url = 'http://192.168.1.137:8080/'
 head = {}
 
+
+
 @allure.feature("登录功能")
 class Test_login:
 
